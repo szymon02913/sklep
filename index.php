@@ -1,6 +1,6 @@
 <html>
     <head>
-    <title>SKLEP</title>
+    <title>OLX</title>
     <style>
         .header{
         background-color:powderblue;
