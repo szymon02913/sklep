@@ -35,7 +35,7 @@
 
         $con = new mysqli("127.0.0.1","root","","projekt_sklep");
         echo '<form method="POST" action="dodawanie.php">';
-        $res = $con->query("SELECT * FROM offerts");
+        $res = $con->query("SELECT * FROM offers");
         $cos = $res->fetch_all();
 
         $res1 = $con->query("SELECT * FROM users");
