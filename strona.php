@@ -22,6 +22,13 @@
             margin: 15px 15px 15px 15px;
             text-align: left;
         }
+            .blok
+        {
+            background: lightgrey;
+            border: 5px solid black;
+            border-radius: 20px;
+            margin: 10px 0 0 0;
+        }
         </style>
     </head>
     <body>
@@ -30,11 +37,11 @@
         session_start();
         echo 'Zalogowany jako: '.$_SESSION["login"].'';
 
-        echo '<form action="index.php"><button>Wyloguj</button></form>';
-        echo '<form action="dodawanie.php"><button>Wystaw</button></form>';
+        echo '<a href="index.php"><button>Wyloguj</button></a>';
+        echo '<a href="dodawanie.php"><button>Wystaw</button></a>';
 
         $con = new mysqli("127.0.0.1","root","","projekt_sklep");
-        echo '<form method="POST" action="dodawanie.php">';
+        echo '<form method="POST">';
         $res = $con->query("SELECT * FROM offers");
         $cos = $res->fetch_all();
 
@@ -42,11 +49,21 @@
         $cos1 = $res1->fetch_all();
 
         echo '<div class="srodek">';
-        for($i=0; $i<count($cos);$i++)
+
+        $offset=($_GET['page']-1)*10;
+        $cos2 = $con->query("SELECT * FROM offers LIMIT 10 OFFSET ".$offset."");
+        $cos22 = $cos2->fetch_all();
+
+        for($i = 0; $i<count($cos22);$i++)
         {
-            echo 'item: '.$cos[$i][1].', Sprzedający: '.$cos1[$cos[$i][3]][1].'<br>';
+            echo '<div class="blok">item: '.$cos[$i][1].', Sprzedający: '.$cos1[$cos[$i][3]][1].'<br>opis: '.$cos[$i][2].' </div>';
         }
 
+        $ile = (count($cos)/10)+1;
+        for($i = 1; $i<$ile; $i++)
+        {
+            echo '<a href="strona.php?page='.$i.'">'.$i.'</a>';
+        }
         echo '</div></form>';
     ?>
         </div></center>
