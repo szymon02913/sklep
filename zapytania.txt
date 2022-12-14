@@ -1,0 +1,21 @@
+1.LOGOWANIE: 
+SELECT id FROM users WHERE login="'.$_POST['login'].'" AND password="'.$_POST['password'].'";   
+
+2.REJESTRACJA:
+INSERT INTO `users`(`id`, `imie`, `nazwisko`, `login`, `password`,) 
+
+3.POBIERANIE OFERTY UŻYTKOWNIKA:
+SELECT shop.name from shop where id="1"
+SELECT shop.description from shop where id="1"
+
+4.MODYFIKOWANIE OFERTY:
+UPDATE shop SET name="test",description="test" WHERE users_id="4" AND id="1"
+
+5.DODAWANIE OFERTY:
+INSERT INTO shop (name,description,users_id) 
+
+6.NIEKUPIONE PRZEDMIOTY:
+SELECT name,description from shop WHERE buyer_id="0";
+
+7.KUPIENIE PRZEDMIOTU:
+UPDATE shop SET buyer_id="1" WHERE name="buy" AND description="przyklad"
