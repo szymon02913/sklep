@@ -26,7 +26,7 @@
         $res = $con->query("SELECT * FROM users");
         $cos = $res->fetch_all();
 
-        echo '<center><div class="d1"><h2>Rejestracja:</h2><br> Login: <input name="login"><br> Haslo: <input name="password" type="password"><br><input type="submit">';
+        echo '<center><div class="d1"><h1>Rejestracja:</h1><br> Login: <input name="login"><br> Haslo: <input name="password" type="password"><br><input type="submit">';
         if($_POST!=NULL)
         {
             if($_POST['login']!="" && $_POST['password']!="")
