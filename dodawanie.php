@@ -30,10 +30,10 @@
 
     $res1 = $con->query("SELECT * FROM offers");
     $cos1 = $res1->fetch_all();
-    echo '<center><div class="d1"> Zalogowany jako: '.$_SESSION["login"].'<h1>Wystaw:</h1><br> Nazwa Itemu: <input name="name"><br> Opis: <input name="description"><br><input type="submit">';
+    echo '<center><div class="d1"> Zalogowany jako: '.$_SESSION["login"].'<h1>Wystaw Przedmiot:</h1><br> Nazwa Przedmiotu: <input name="name"><br> Opis: <input name="description"><br><input type="submit">';
     if($_POST!=NULL)
     {
-            $sqlquery = "INSERT INTO `offerts` VALUES ('".count($cos1)."', '".$_POST['name']."', '".$_POST['description']."','".$_SESSION["id"]."');";
+            $sqlquery = "INSERT INTO `offers` VALUES ('".count($cos1)."', '".$_POST['name']."', '".$_POST['description']."','".$_SESSION["id"]."');";
             $con->query($sqlquery);
             header('location: strona.php');
     }
